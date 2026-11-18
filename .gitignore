@@ -1,0 +1,17 @@
+# Data and database (downloaded or built locally)
+data/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors and macOS
+.DS_Store
+.vscode/
+.idea/
+
+# Secrets
+.env
+.streamlit/secrets.toml
