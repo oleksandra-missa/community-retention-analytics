@@ -19,6 +19,10 @@ and which early experiences make a difference**, then turns that into recommenda
 | 4 | How concentrated is the work? What share of edits comes from the most active 1% of editors? | Community health metrics |
 | 5 | How would we test a feature that might help, such as a welcome message? | A/B test design |
 
+## What's in this project
+
+- Download the edit history and load it into DuckDB (15.2M events, 2001–2026)
+
 ## Data
 
 [MediaWiki history dumps](https://dumps.wikimedia.org/other/mediawiki_history/readme.html) from the
@@ -54,6 +58,8 @@ numeric IDs in results and the dashboard, never by username.
 ```
 ├── data/              # raw download and the DuckDB database (not in git)
 ├── pipeline/
+│   ├── load_data.py   # downloads the dump and loads it into DuckDB
+│   └── columns.csv    # the dump's 78 column names and types, from the official docs
 └── AI_WORKFLOW.md     # data decisions: what I chose, why, and the impact
 ```
 
