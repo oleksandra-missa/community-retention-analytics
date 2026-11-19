@@ -27,8 +27,8 @@ def show(con, title, sql):
 def main():
     con = duckdb.connect(str(DB_PATH), read_only=True)
 
-    # Edits by registered editors only: anonymous editors have no account ID,
-    # so they can't be bots (and are a separate cleaning decision).
+    # Edits by registered (permanent) accounts only. Bots are always registered accounts:
+    # no anonymous or temporary-account edit has a bot flag.
     # Each bot column holds 'name', 'group', both ('name,group') or NULL.
     con.sql("""
         create temp table registered_edits as
@@ -38,8 +38,7 @@ def main():
             coalesce(event_user_is_bot_by, '') as bot_flag_today
         from raw_events
         where event_entity = 'revision'
-          and event_user_id is not null
-          and not coalesce(event_user_is_anonymous, false)
+          and event_user_is_permanent
     """)
 
     # One row per account, to see bots as accounts rather than single edits.
@@ -95,7 +94,7 @@ def main():
     """)
 
     show(con, "Impact of each rule (edits and accounts removed)", """
-        select 'Start: edits by registered editors' as bot_rule, count(*) as edits, count(distinct user_id) as accounts
+        select 'Start: edits by registered accounts' as bot_rule, count(*) as edits, count(distinct user_id) as accounts
         from registered_edits
         union all
         select 'A: per edit, flagged at the time', count(*), count(distinct user_id)
