@@ -60,6 +60,8 @@ numeric IDs in results and the dashboard, never by username.
 ├── pipeline/
 │   ├── load_data.py   # downloads the dump and loads it into DuckDB
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
+├── analysis/
+│   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
 └── AI_WORKFLOW.md     # data decisions: what I chose, why, and the impact
 ```
 
