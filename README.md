@@ -14,7 +14,7 @@ and which early experiences make a difference**, then turns that into recommenda
 | # | Question | Method |
 |---|---|---|
 | 1 | How many new accounts make a 1st, 5th and 50th edit? | Activation funnel |
-| 2 | What share of each monthly group of newcomers is still active 1, 3 and 6 months later? Is it changing over the years? | Cohort retention |
+| 2 | What share of each year's newcomers is still editing in the second month and in months 3–6? Is it changing over the years? | Cohort retention |
 | 3 | Are newcomers whose first edits are reverted less likely to stay? Does editing on mobile matter? | Retention drivers |
 | 4 | How concentrated is the work? What share of edits comes from the most active 1% of editors? | Community health metrics |
 | 5 | How would we test a feature that might help, such as a welcome message? | A/B test design |
@@ -22,6 +22,7 @@ and which early experiences make a difference**, then turns that into recommenda
 ## What's in this project
 
 - Download the edit history and load it into DuckDB (15.2M events, 2001–2026)
+- Write a [metrics definitions document](docs/metrics_definitions.md): what counts as "active", "retained" and "reverted"
 
 ## Data
 
@@ -62,6 +63,8 @@ numeric IDs in results and the dashboard, never by username.
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
 ├── analysis/
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
+├── docs/
+│   └── metrics_definitions.md   # exact definitions of every metric
 └── AI_WORKFLOW.md     # data decisions: what I chose, why, and the impact
 ```
 
