@@ -99,6 +99,21 @@ and revision_seconds_to_identity_revert < 30 * 86400
 - The `mw-reverted` tag is not used: it barely exists before 2020.
 - 32,878 of 133,976 newcomers (24.5%) had at least one edit from their first day reverted.
 
+## Page deleted [11]
+
+A human edit whose **page was deleted within 30 days** of the edit.
+
+```sql
+revision_is_deleted_by_page_deletion
+and revision_deleted_by_page_deletion_timestamp < event_timestamp + interval 30 day
+```
+
+- Edits on pages that were later deleted are kept in every other count. This includes pages that were deleted
+  and later restored, whose edits keep the deletion mark.
+- 25,385 of 133,976 newcomers (18.9%) had at least one edit from their first day whose page was deleted within 30 days.
+  This counts every first-day edit, not only the first edit: 25,013 newcomers made their very first edit on a page
+  that was deleted at any time later, and the two groups overlap but neither contains the other.
+
 ## Active editors [9]
 
 Counted per calendar month, for registered accounts' human edits.

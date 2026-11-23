@@ -22,6 +22,7 @@ and which early experiences make a difference**, then turns that into recommenda
 ## What's in this project
 
 - Download the edit history and load it into DuckDB (15.2M events, 2001–2026)
+- Profile the data and decide on cleaning rules (bots, anonymous editors, deleted pages)
 - Write a [metrics definitions document](docs/metrics_definitions.md): what counts as "active", "retained" and "reverted"
 
 ## Data
