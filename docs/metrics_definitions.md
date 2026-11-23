@@ -31,8 +31,9 @@ A bot is flagged by its username (`name`) or by being in the bot group (`group`)
 ### Logged-out editors [3]
 Edits by anonymous editors (`event_user_is_anonymous`, shown by IP address until September 2025) and by
 temporary accounts (`event_user_is_temporary`, from September 2025). They are reported as a separate group in
-community health and are not newcomers. Edits where none of `event_user_is_permanent`, `event_user_is_anonymous`
-and `event_user_is_temporary` is true are excluded (6,546 edits).
+community health and are not newcomers. The bot rule applies to them too: 4,121 anonymous edits have a bot flag
+and are removed. Edits where none of `event_user_is_permanent`, `event_user_is_anonymous` and
+`event_user_is_temporary` is true are excluded (6,546 edits).
 
 ### Newcomer [4, 5]
 A registered account, created in any way, counted from its **first human edit** anywhere on the wiki.
@@ -125,3 +126,42 @@ Counted per calendar month, for registered accounts' human edits.
 | **Very active editor** | At least **100** human edits in the month | 33 |
 
 These are the thresholds Wikimedia uses in its own statistics.
+
+## Cleaned tables
+
+`pipeline/build_tables.py` builds these tables in `data/wiki.duckdb` from `raw_events`, applying the definitions above.
+
+### `edits`: one row per edit by a registered human or a logged-out editor (8,330,211 rows)
+
+| Column | Meaning |
+|---|---|
+| `revision_id` | Edit ID |
+| `event_timestamp` | When the edit was made |
+| `editor_type` | `registered` (6,153,960 edits) or `logged_out` (2,176,251) |
+| `user_id` | Account ID; empty for anonymous editors |
+| `page_id`, `page_namespace` | The page, and which part of the wiki it was in at the time |
+| `text_bytes_diff` | How much the page grew (+) or shrank (−), in bytes |
+| `revision_tags` | Labels the software added, as comma-separated text |
+| `is_reverted` | A [reverted edit](#reverted-edit-7) |
+| `page_deleted_within_30_days` | The edit's [page was deleted](#page-deleted-11) within 30 days |
+
+### `accounts`: one row per registered account (1,761,982 rows)
+
+| Column | Meaning |
+|---|---|
+| `user_id` | Account ID |
+| `created_at` | When the account was created (the account-creation event's time) |
+| `created_by` | `self`, `peer` (another user), `system` (automatically) or `unknown` |
+| `first_edit_at` | The account's first human edit; empty if it never made one |
+
+### `newcomers`: one row per [newcomer](#newcomer-4-5) of 2008–2025 (133,976 rows)
+
+| Column | Meaning |
+|---|---|
+| `user_id`, `cohort_year`, `first_edit_at` | The newcomer, their cohort and when their clock starts |
+| `account_created_at`, `created_by` | When and how the account was created |
+| `first_edit_namespace` | Where the first edit was made |
+| `edits_total` | All their human edits, at any time |
+| `retained_months_3_to_6` | The [main retention metric](#retained-main-metric-6) |
+| `retained_second_month` | The [secondary retention metric](#retained-in-the-second-month-secondary-metric-6) |
+| `fifth_edit_within_180_days`, `fiftieth_edit_within_180_days` | Funnel steps 3 and 4 |

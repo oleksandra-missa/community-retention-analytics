@@ -61,6 +61,7 @@ numeric IDs in results and the dashboard, never by username.
 ├── data/              # raw download and the DuckDB database (not in git)
 ├── pipeline/
 │   ├── load_data.py   # downloads the dump and loads it into DuckDB
+│   ├── build_tables.py   # builds the cleaned tables (edits, accounts, newcomers) from raw_events
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
 ├── analysis/
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
@@ -76,6 +77,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python pipeline/load_data.py
+python pipeline/build_tables.py
 ```
 
 ## How this was built

@@ -27,8 +27,8 @@ def show(con, title, sql):
 def main():
     con = duckdb.connect(str(DB_PATH), read_only=True)
 
-    # Edits by registered (permanent) accounts only. Bots are always registered accounts:
-    # no anonymous or temporary-account edit has a bot flag.
+    # Edits by registered (permanent) accounts only: almost all bot edits are theirs.
+    # 4,121 anonymous edits also carry a bot flag (by name); build_tables.py removes them with the same rule.
     # Each bot column holds 'name', 'group', both ('name,group') or NULL.
     con.sql("""
         create temp table registered_edits as
