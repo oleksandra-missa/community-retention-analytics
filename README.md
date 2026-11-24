@@ -64,6 +64,8 @@ numeric IDs in results and the dashboard, never by username.
 │   ├── build_tables.py   # builds the cleaned tables (edits, accounts, newcomers) from raw_events
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
 ├── analysis/
+│   ├── notebooks/
+│   │   └── 01_cohort_retention.ipynb   # retention by cohort year, 2008–2025
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
 ├── docs/
 │   └── metrics_definitions.md   # exact definitions of every metric
@@ -78,6 +80,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 python pipeline/load_data.py
 python pipeline/build_tables.py
+jupyter lab analysis/notebooks/   # the analysis notebooks
 ```
 
 ## How this was built
