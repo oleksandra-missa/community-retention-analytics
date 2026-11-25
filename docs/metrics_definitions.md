@@ -160,6 +160,18 @@ wiki. Ties are broken by account ID, so the ranking is the same every run.
 Logged-out editors aren't ranked, since they can't be counted as people; their edits are reported as a share of all
 human edits.
 
+## A/B test [16]
+
+The planned test is described in [ab_test_design.md](ab_test_design.md). Its metrics reuse the definitions above:
+
+- **Eligible newcomer:** a newcomer with a [reverted edit](#reverted-edit-7) from their first day. 12,828 in
+  2021–2025, 2,566 a year.
+- **Primary metric:** [retained in the second month](#retained-in-the-second-month-secondary-metric-6).
+  Baseline 2.78% for eligible newcomers of 2021–2025.
+- **Secondary metric and guardrail:** [retained in months 3–6](#retained-main-metric-6). Baseline 2.96%.
+- **Guardrail, later edits reverted:** of a group's human edits in the 30 days after the newcomer's first revert,
+  the share that are [reverted](#reverted-edit-7).
+
 ## Cleaned tables
 
 `pipeline/build_tables.py` builds these tables in `data/wiki.duckdb` from `raw_events`, applying the definitions above.
