@@ -115,6 +115,23 @@ and revision_deleted_by_page_deletion_timestamp < event_timestamp + interval 30 
   This counts every first-day edit, not only the first edit: 25,013 newcomers made their very first edit on a page
   that was deleted at any time later, and the two groups overlap but neither contains the other.
 
+## First-day experiences [12]
+
+A newcomer's **first day** is the 24 hours from their first human edit. Two experiences are measured over the
+first-day edits, on every part of the wiki:
+
+- **Reverted on the first day:** at least one first-day edit is a [reverted edit](#reverted-edit-7).
+  32,878 newcomers (24.5%).
+- **Page deleted on the first day:** at least one first-day edit's [page was deleted](#page-deleted-11) within 30 days.
+  25,385 newcomers (18.9%).
+
+Both happen within 31 days of the first edit, so they always come before the main retention window (days 60–180).
+The **number of first-day edits** is used in groups: 1, 2–4, 5–9 and 10+.
+
+Drivers of retention are compared in two ways [13]: within groups of newcomers with the same number of first-day
+edits, cohort period or creation method, and with a logistic regression that holds all these factors fixed at once
+(see `analysis/notebooks/02_first_experiences.ipynb`).
+
 ## Active editors [9]
 
 Counted per calendar month, for registered accounts' human edits.

@@ -52,7 +52,7 @@ numeric IDs in results and the dashboard, never by username.
 | Layer | Tool |
 |---|---|
 | Storage and querying | DuckDB + SQL |
-| Analysis | Python (pandas, Jupyter) |
+| Analysis | Python (pandas, statsmodels, Jupyter) |
 | Dashboard | Streamlit |
 
 ## Project structure
@@ -65,7 +65,8 @@ numeric IDs in results and the dashboard, never by username.
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
 ├── analysis/
 │   ├── notebooks/
-│   │   └── 01_cohort_retention.ipynb   # retention by cohort year, 2008–2025
+│   │   ├── 01_cohort_retention.ipynb   # retention by cohort year, 2008–2025
+│   │   └── 02_first_experiences.ipynb   # first-day reverts and deletions, and retention
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
 ├── docs/
 │   └── metrics_definitions.md   # exact definitions of every metric
