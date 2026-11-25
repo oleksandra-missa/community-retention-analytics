@@ -26,6 +26,7 @@ and which early experiences make a difference**, then turns that into recommenda
 - Write a [metrics definitions document](docs/metrics_definitions.md): what counts as "active", "retained" and "reverted"
 - Analyze the funnel, cohorts, retention drivers and community health ([notebooks](analysis/notebooks/))
 - [Design an A/B test](docs/ab_test_design.md) of a message to newcomers after their first revert
+- Build a [Streamlit dashboard](dashboard/) with filters by year, account type and device, and an A/B test calculator
 
 ## Data
 
@@ -55,7 +56,7 @@ numeric IDs in results and the dashboard, never by username.
 |---|---|
 | Storage and querying | DuckDB + SQL |
 | Analysis | Python (pandas, statsmodels, Jupyter) |
-| Dashboard | Streamlit |
+| Dashboard | Streamlit + Altair |
 
 ## Project structure
 
@@ -64,6 +65,7 @@ numeric IDs in results and the dashboard, never by username.
 ├── pipeline/
 │   ├── load_data.py   # downloads the dump and loads it into DuckDB
 │   ├── build_tables.py   # builds the cleaned tables (edits, accounts, newcomers) from raw_events
+│   ├── build_dashboard_data.py   # builds the dashboard's summary tables from the cleaned tables
 │   └── columns.csv    # the dump's 78 column names and types, from the official docs
 ├── analysis/
 │   ├── notebooks/
@@ -73,6 +75,11 @@ numeric IDs in results and the dashboard, never by username.
 │   │   ├── 04_community_health.ipynb   # active editors, logged-out editing and how concentrated the work is
 │   │   └── 05_ab_test_power.ipynb   # sample size, duration and power for the A/B test
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
+├── dashboard/
+│   ├── app.py   # the Streamlit app: filters and page navigation
+│   ├── data.py   # loads the summary tables, applies the filters, chart style
+│   ├── views/   # one file per page
+│   └── data/   # small summary tables the dashboard reads (counts only, no account IDs)
 ├── docs/
 │   ├── ab_test_design.md   # the A/B test plan: hypothesis, metrics, sample size and risks
 │   └── metrics_definitions.md   # exact definitions of every metric
@@ -88,6 +95,8 @@ pip install -r requirements.txt
 python pipeline/load_data.py
 python pipeline/build_tables.py
 jupyter lab analysis/notebooks/   # the analysis notebooks
+python pipeline/build_dashboard_data.py   # only needed to refresh the dashboard's summary tables
+streamlit run dashboard/app.py   # the dashboard
 ```
 
 ## How this was built
