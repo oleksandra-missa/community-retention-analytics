@@ -24,6 +24,7 @@ and which early experiences make a difference**, then turns that into recommenda
 - Download the edit history and load it into DuckDB (15.2M events, 2001–2026)
 - Profile the data and decide on cleaning rules (bots, anonymous editors, deleted pages)
 - Write a [metrics definitions document](docs/metrics_definitions.md): what counts as "active", "retained" and "reverted"
+- Analyze the funnel, cohorts, retention drivers and community health ([notebooks](analysis/notebooks/))
 
 ## Data
 
@@ -67,7 +68,8 @@ numeric IDs in results and the dashboard, never by username.
 │   ├── notebooks/
 │   │   ├── 01_cohort_retention.ipynb   # retention by cohort year, 2008–2025
 │   │   ├── 02_first_experiences.ipynb   # first-day reverts and deletions, and retention
-│   │   └── 03_activation_funnel.ipynb   # sign-up → 1st → 5th → 50th edit, by year
+│   │   ├── 03_activation_funnel.ipynb   # sign-up → 1st → 5th → 50th edit, by year
+│   │   └── 04_community_health.ipynb   # active editors, logged-out editing and how concentrated the work is
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
 ├── docs/
 │   └── metrics_definitions.md   # exact definitions of every metric

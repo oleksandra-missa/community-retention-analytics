@@ -144,6 +144,19 @@ Counted per calendar month, for registered accounts' human edits.
 
 These are the thresholds Wikimedia uses in its own statistics.
 
+## Concentration of work [14]
+
+Per calendar year, registered editors are ranked by their number of human edits that year, on every part of the
+wiki. Ties are broken by account ID, so the ranking is the same every run.
+
+| Measure | Definition | 2008–2025 |
+|---|---|---:|
+| **Top 1% share** | Share of the year's edits made by the first 1% of the ranking (rounded up) | 73.2–84.6% |
+| **Editors making half** | How many editors, counting down the ranking, it takes to reach half of the year's edits | 7–26 |
+
+Logged-out editors aren't ranked, since they can't be counted as people; their edits are reported as a share of all
+human edits.
+
 ## Cleaned tables
 
 `pipeline/build_tables.py` builds these tables in `data/wiki.duckdb` from `raw_events`, applying the definitions above.
