@@ -124,6 +124,9 @@ first-day edits, on every part of the wiki:
   32,878 newcomers (24.5%).
 - **Page deleted on the first day:** at least one first-day edit's [page was deleted](#page-deleted-11) within 30 days.
   25,385 newcomers (18.9%).
+- **Started on mobile [15]:** the first human edit has the `mobile edit` tag, which covers the mobile website and the
+  Wikipedia apps. Measured for the cohorts 2014–2025, since mobile editing for registered users began in 2013.
+  25,531 of 97,170 newcomers (26.3%).
 
 Both happen within 31 days of the first edit, so they always come before the main retention window (days 60–180).
 The **number of first-day edits** is used in groups: 1, 2–4, 5–9 and 10+.

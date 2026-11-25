@@ -67,7 +67,7 @@ numeric IDs in results and the dashboard, never by username.
 ├── analysis/
 │   ├── notebooks/
 │   │   ├── 01_cohort_retention.ipynb   # retention by cohort year, 2008–2025
-│   │   ├── 02_first_experiences.ipynb   # first-day reverts and deletions, and retention
+│   │   ├── 02_first_experiences.ipynb   # first-day reverts, deletions and mobile, and retention
 │   │   ├── 03_activation_funnel.ipynb   # sign-up → 1st → 5th → 50th edit, by year
 │   │   └── 04_community_health.ipynb   # active editors, logged-out editing and how concentrated the work is
 │   └── profiling/   # scripts that compare the options behind each data decision and measure their impact
