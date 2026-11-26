@@ -3,6 +3,22 @@
 A product analytics study of how a real online community, **Simple English Wikipedia**, gains and loses
 its new members. Built on the full public edit history (2001–2026).
 
+## Key findings
+
+- **Only 6.3% of newcomers stay.** Of the 133,976 registered accounts that made a first edit in 2008–2025, 6.3% were still
+  editing three to six months later. Retention fell from 14.3% (2008) to 4.4% (2019) and has only partly
+  recovered (5.3–5.8% in 2022–2025).
+- **Rejection on the first day goes with leaving.** A quarter of newcomers have a first-day edit reverted.
+  Compared with similar newcomers (same first-day activity, year and account type), they have 0.37 times the
+  odds of staying.
+- **There is a moment to act.** About half of those reverts come within 10 minutes of the first edit, while the
+  newcomer is often still on the site.
+- **The wiki depends on very few people.** Every year the top 1% of editors make 73–85% of the edits.
+
+**Recommendation:** an A/B test of a friendly message sent right after a newcomer's first revert. On this wiki
+alone it would take about 4 years; across several wikis, about 11 months. The
+[memo to a product team](docs/memo.md) has all six findings and four recommendations.
+
 ## Why this question
 
 Every community-driven product has to get new users to stay, from social networks to open-source projects and Wikipedia.
@@ -17,17 +33,20 @@ and which early experiences make a difference**, then turns that into recommenda
 | 2 | What share of each year's newcomers is still editing in the second month and in months 3–6? Is it changing over the years? | Cohort retention |
 | 3 | Are newcomers whose first edits are reverted less likely to stay? Does editing on mobile matter? | Retention drivers |
 | 4 | How concentrated is the work? What share of edits comes from the most active 1% of editors? | Community health metrics |
-| 5 | How would we test a feature that might help, such as a welcome message? | A/B test design |
+| 5 | How would we test a feature that might help, such as a message after a newcomer's first revert? | A/B test design |
 
 ## What's in this project
 
-- Download the edit history and load it into DuckDB (15.2M events, 2001–2026)
-- Profile the data and decide on cleaning rules (bots, anonymous editors, deleted pages)
-- Write a [metrics definitions document](docs/metrics_definitions.md): what counts as "active", "retained" and "reverted"
-- Analyze the funnel, cohorts, retention drivers and community health ([notebooks](analysis/notebooks/))
-- [Design an A/B test](docs/ab_test_design.md) of a message to newcomers after their first revert
-- Build a [Streamlit dashboard](dashboard/) with filters by year, account type and device, and an A/B test calculator
-- Write a [memo to a product team](docs/memo.md): what we found and what to test
+- **Data:** the full edit history loaded into DuckDB (15.2M events, 2001–2026), profiled and cleaned, with every
+  rule recorded in the [data decisions](docs/data_decisions.md) (bots, logged-out editors, deleted pages)
+- **Definitions:** a [metrics definitions document](docs/metrics_definitions.md): what counts as "active",
+  "retained" and "reverted"
+- **Analysis:** five [notebooks](analysis/notebooks/) on the funnel, cohort retention, first-day experiences,
+  community health and the A/B test's sample size
+- **Experiment design:** an [A/B test plan](docs/ab_test_design.md) for a message to newcomers after their first revert
+- **Dashboard:** a [Streamlit dashboard](dashboard/) with filters by year, account type and device, and an A/B test
+  calculator
+- **Memo:** a [memo to a product team](docs/memo.md): what we found and what to test
 
 ## Data
 
@@ -106,3 +125,7 @@ streamlit run dashboard/app.py   # the dashboard
 I built this project with [Claude Code](https://claude.com/claude-code) as a coding assistant.
 I made the analytical decisions (cleaning rules, metric definitions, conclusions) and checked the outputs.
 [Data decisions](docs/data_decisions.md) lists every one of those decisions, why I made it, and its impact.
+
+## License
+
+The code is under the [MIT license](LICENSE). The data isn't included: it comes from the Wikimedia Foundation's public dumps (see [Data](#data)).
