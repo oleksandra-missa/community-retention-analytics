@@ -27,6 +27,7 @@ and which early experiences make a difference**, then turns that into recommenda
 - Analyze the funnel, cohorts, retention drivers and community health ([notebooks](analysis/notebooks/))
 - [Design an A/B test](docs/ab_test_design.md) of a message to newcomers after their first revert
 - Build a [Streamlit dashboard](dashboard/) with filters by year, account type and device, and an A/B test calculator
+- Write a [memo to a product team](docs/memo.md): what we found and what to test
 
 ## Data
 
@@ -82,6 +83,7 @@ numeric IDs in results and the dashboard, never by username.
 │   └── data/   # small summary tables the dashboard reads (counts only, no account IDs)
 ├── docs/
 │   ├── ab_test_design.md   # the A/B test plan: hypothesis, metrics, sample size and risks
+│   ├── memo.md   # short summary for a product team: findings and recommendations
 │   └── metrics_definitions.md   # exact definitions of every metric
 └── AI_WORKFLOW.md     # data decisions: what I chose, why, and the impact
 ```
