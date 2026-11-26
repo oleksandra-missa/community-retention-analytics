@@ -9,7 +9,7 @@ so they stay the same when you move between pages; each page reads them through 
 
 import streamlit as st
 
-from data import CREATED_BY_LABELS, DEVICE_LABELS
+from data import CREATED_BY_LABELS, DEVICE_LABELS, REPO_URL
 
 st.set_page_config(page_title="Newcomer retention", page_icon="📈", layout="wide")
 
@@ -32,6 +32,7 @@ with st.sidebar:
     st.caption("Community health and the A/B test calculator use only some of the filters; each page says which.")
     st.divider()
     st.caption("Data: Wikimedia MediaWiki history dumps, snapshot 2026-10. Editors are counted, never named.")
+    st.caption(f"Notebooks, docs and code: [on GitHub]({REPO_URL})")
 
 if not st.session_state["created_by"]:
     st.warning("Choose at least one way the account was created.")

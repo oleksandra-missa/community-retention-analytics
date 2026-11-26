@@ -2,7 +2,7 @@
 
 import streamlit as st
 
-from data import MIN_NEWCOMERS, filter_summary, rate, selected_groups
+from data import MIN_NEWCOMERS, REPO_URL, filter_summary, rate, selected_groups
 
 st.title("Why do newcomers leave?")
 st.write(
@@ -46,5 +46,7 @@ st.markdown("""
 """)
 st.caption(
     "The pages on the left show each part. The full analysis, with the methods and checks, is in the project's "
-    "notebooks; the A/B test plan is in docs/ab_test_design.md."
+    f"[notebooks]({REPO_URL}/tree/main/analysis/notebooks); the findings and recommendations are in the "
+    f"[memo]({REPO_URL}/blob/main/docs/memo.md), and the plan for the test in the "
+    f"[A/B test design]({REPO_URL}/blob/main/docs/ab_test_design.md)."
 )

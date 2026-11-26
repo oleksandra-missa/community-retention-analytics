@@ -9,7 +9,7 @@ import streamlit as st
 from statsmodels.stats.power import NormalIndPower
 from statsmodels.stats.proportion import proportion_effectsize
 
-from data import BLUE, SURFACE, load, style
+from data import BLUE, REPO_URL, SURFACE, load, style
 
 BASE_YEARS = (2021, 2025)  # the five most recent full cohorts, as in notebook 05
 
@@ -18,9 +18,9 @@ st.caption(f"Baselines from the cohorts {BASE_YEARS[0]}–{BASE_YEARS[1]}, all a
            "The sidebar filters don't apply on this page.")
 st.write(
     "The planned test sends a friendly message to newcomers when an edit from their first day is reverted, and "
-    "compares them with a control group that gets nothing new ([design](https://github.com/oleksandra-missa/"
-    "community-retention-analytics/blob/main/docs/ab_test_design.md)). Change the settings to see how many newcomers "
-    "the test needs and how long collecting them would take."
+    "compares them with a control group that gets nothing new "
+    f"([design]({REPO_URL}/blob/main/docs/ab_test_design.md)). Change the settings to see how many newcomers the "
+    "test needs and how long collecting them would take."
 )
 
 groups = load("newcomer_groups")

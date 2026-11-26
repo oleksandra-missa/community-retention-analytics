@@ -11,6 +11,9 @@ import streamlit as st
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 
+# The project on GitHub, so visitors of the online dashboard can find the notebooks, docs and code
+REPO_URL = "https://github.com/oleksandra-missa/community-retention-analytics"
+
 # Rates based on fewer newcomers than this are hidden: by chance alone they can be off by about ±6 points (decision 17)
 MIN_NEWCOMERS = 50
 

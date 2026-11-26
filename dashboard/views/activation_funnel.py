@@ -4,8 +4,8 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from data import (BLUE, TEXT, add_rate, filter_summary, hidden_note, line_by_year, load, selected_groups,
-                  selected_years, show_chart, style)
+from data import (BLUE, MIN_NEWCOMERS, TEXT, add_rate, filter_summary, hidden_note, line_by_year, load,
+                  selected_groups, selected_years, show_chart, style)
 
 st.title("Activation funnel")
 filter_summary()
@@ -31,8 +31,11 @@ bars = alt.Chart(steps, title="From the first edit to the 50th").encode(
              alt.Tooltip("pct_of_newcomers:Q", title="% of newcomers", format=".1f")],
 )
 labels = bars.mark_text(align="left", dx=6, color=TEXT, fontSize=13).encode(text="label:N")
-st.altair_chart(style(bars.mark_bar(color=BLUE, cornerRadiusEnd=4, height=24) + labels, height=130),
-                width="stretch")
+if newcomers < MIN_NEWCOMERS:
+    st.info(f"Too few newcomers in the selection to show the funnel (fewer than {MIN_NEWCOMERS}).")
+else:
+    st.altair_chart(style(bars.mark_bar(color=BLUE, cornerRadiusEnd=4, height=24) + labels, height=130),
+                    width="stretch")
 
 left, right = st.columns(2)
 by_year = groups.groupby("cohort_year", as_index=False)[["newcomers", "fifth_edit", "fiftieth_edit"]].sum().rename(
