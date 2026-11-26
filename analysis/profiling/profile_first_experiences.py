@@ -6,7 +6,7 @@ Run pipeline/build_tables.py first.
 A newcomer's first day is the 24 hours from their first human edit. The experiences are the ones defined in
 docs/metrics_definitions.md: a reverted edit (decision 7) and an edit whose page was deleted within 30 days
 (decision 11). The outcome is the main retention metric, an edit in days 60-180 (decision 6).
-The chosen measure is decision 12 in AI_WORKFLOW.md.
+The chosen measure is decision 12 in docs/data_decisions.md.
 
 Usage:
     python analysis/profiling/profile_first_experiences.py

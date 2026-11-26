@@ -1,7 +1,7 @@
 # A/B test design: a message after a newcomer's first revert
 
 A plan for an experiment a product team could run on Simple English Wikipedia. The choices behind it are
-decision 16 in the [Data decisions](../AI_WORKFLOW.md#data-decisions) table. The numbers are calculated in
+decision 16 in the [Data decisions](data_decisions.md) table. The numbers are calculated in
 [analysis/notebooks/05_ab_test_power.ipynb](../analysis/notebooks/05_ab_test_power.ipynb) and
 [analysis/profiling/profile_ab_test.py](../analysis/profiling/profile_ab_test.py), from the cohorts 2021–2025.
 

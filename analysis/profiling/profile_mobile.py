@@ -6,7 +6,7 @@ Run pipeline/build_tables.py first.
 An edit counts as a mobile edit when the software tagged it `mobile edit`. That tag is added to every edit made on
 the mobile website (`mobile web edit`) and in the Wikipedia apps (`mobile app edit`).
 The outcome is the main retention metric, an edit in days 60-180 (decision 6).
-The chosen measure is decision 15 in AI_WORKFLOW.md.
+The chosen measure is decision 15 in docs/data_decisions.md.
 
 Usage:
     python analysis/profiling/profile_mobile.py

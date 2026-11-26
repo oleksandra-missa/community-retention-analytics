@@ -1,7 +1,7 @@
 """Profile bot activity in `raw_events` and measure the impact of each way to identify bots.
 
 Read-only: it only runs queries and prints tables. The chosen rule is recorded as
-decision 2 in AI_WORKFLOW.md.
+decision 2 in docs/data_decisions.md.
 
 Usage:
     python analysis/profiling/profile_bots.py

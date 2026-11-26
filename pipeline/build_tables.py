@@ -1,4 +1,4 @@
-"""Build the cleaned tables from `raw_events`, applying the decisions in AI_WORKFLOW.md.
+"""Build the cleaned tables from `raw_events`, applying the decisions in docs/data_decisions.md.
 
 It creates three tables in data/wiki.duckdb, replacing them if they exist:
 

@@ -1,7 +1,7 @@
 # Metrics definitions
 
 The exact definitions behind every number in this analysis. Each one comes from a decision in the
-[Data decisions](../AI_WORKFLOW.md#data-decisions) table, shown in brackets. Column names refer to the table
+[Data decisions](data_decisions.md) table, shown in brackets. Column names refer to the table
 `raw_events`.
 
 Counts are for snapshot 2026-10 of Simple English Wikipedia and can be reproduced with the `analysis/profiling/profile_*.py` scripts.

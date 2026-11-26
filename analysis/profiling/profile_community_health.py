@@ -1,7 +1,7 @@
 """Profile how concentrated the work is, and measure the options for a concentration metric.
 
 Read-only: it only runs queries on the cleaned `edits` table and prints tables. Run pipeline/build_tables.py first.
-The chosen metric is decision 14 in AI_WORKFLOW.md.
+The chosen metric is decision 14 in docs/data_decisions.md.
 
 It uses human edits (decisions 2 and 3) in 2008-2025, the years of the newcomer cohorts. Registered editors are
 identified by their account ID. Logged-out editors can't be counted as people (an anonymous editor is an IP

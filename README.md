@@ -81,11 +81,11 @@ numeric IDs in results and the dashboard, never by username.
 │   ├── data.py   # loads the summary tables, applies the filters, chart style
 │   ├── views/   # one file per page
 │   └── data/   # small summary tables the dashboard reads (counts only, no account IDs)
-├── docs/
-│   ├── ab_test_design.md   # the A/B test plan: hypothesis, metrics, sample size and risks
-│   ├── memo.md   # short summary for a product team: findings and recommendations
-│   └── metrics_definitions.md   # exact definitions of every metric
-└── AI_WORKFLOW.md     # data decisions: what I chose, why, and the impact
+└── docs/
+    ├── ab_test_design.md   # the A/B test plan: hypothesis, metrics, sample size and risks
+    ├── data_decisions.md   # every cleaning rule and metric definition I chose, why, and the impact
+    ├── memo.md   # short summary for a product team: findings and recommendations
+    └── metrics_definitions.md   # exact definitions of every metric
 ```
 
 ## How to run
@@ -105,4 +105,4 @@ streamlit run dashboard/app.py   # the dashboard
 
 I built this project with [Claude Code](https://claude.com/claude-code) as a coding assistant.
 I made the analytical decisions (cleaning rules, metric definitions, conclusions) and checked the outputs.
-[AI_WORKFLOW.md](AI_WORKFLOW.md) lists every data decision I made, why, and its impact.
+[Data decisions](docs/data_decisions.md) lists every one of those decisions, why I made it, and its impact.
