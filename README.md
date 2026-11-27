@@ -127,6 +127,7 @@ streamlit run dashboard/app.py   # the dashboard
 I built this project with [Claude Code](https://claude.com/claude-code) as a coding assistant.
 I made the analytical decisions (cleaning rules, metric definitions, conclusions) and checked the outputs.
 [Data decisions](docs/data_decisions.md) lists every one of those decisions, why I made it, and its impact.
+The rules Claude Code followed are in [CLAUDE.md](CLAUDE.md).
 
 ## License
 
