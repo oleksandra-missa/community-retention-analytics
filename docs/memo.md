@@ -71,7 +71,7 @@ effect.
 
 ## Where to look
 
-- **Dashboard:** `dashboard/` in this repository (`streamlit run dashboard/app.py`), with filters by year, account
-  type and device, and an A/B test calculator.
+- **Dashboard:** [community-retention-analytics.streamlit.app](https://community-retention-analytics.streamlit.app),
+  with filters by year, account type and device, and an A/B test calculator. The code is in `dashboard/`.
 - **Analysis:** the five notebooks in [`analysis/notebooks/`](../analysis/notebooks/), and every definition in
   [metrics_definitions.md](metrics_definitions.md).

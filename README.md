@@ -3,6 +3,8 @@
 A product analytics study of how a real online community, **Simple English Wikipedia**, gains and loses
 its new members. Built on the full public edit history (2001–2026).
 
+**[Open the live dashboard](https://community-retention-analytics.streamlit.app)**
+
 ## Key findings
 
 - **Only 6.3% of newcomers stay.** Of the 133,976 registered accounts that made a first edit in 2008–2025, 6.3% were still
@@ -44,8 +46,8 @@ and which early experiences make a difference**, then turns that into recommenda
 - **Analysis:** five [notebooks](analysis/notebooks/) on the funnel, cohort retention, first-day experiences,
   community health and the A/B test's sample size
 - **Experiment design:** an [A/B test plan](docs/ab_test_design.md) for a message to newcomers after their first revert
-- **Dashboard:** a [Streamlit dashboard](dashboard/) with filters by year, account type and device, and an A/B test
-  calculator
+- **Dashboard:** a [live Streamlit dashboard](https://community-retention-analytics.streamlit.app) with filters by
+  year, account type and device, and an A/B test calculator (code in [`dashboard/`](dashboard/))
 - **Memo:** a [memo to a product team](docs/memo.md): what we found and what to test
 
 ## Data
